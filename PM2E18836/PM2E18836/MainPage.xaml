@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E18836.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="Imagen del Sitio Visitado" FontSize="Large" HorizontalOptions="Center" TextColor="Black" />
+
+            <Image x:Name="foto" Source="camera2.png" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" />
+
+            <Button x:Name="btnFoto" Text="Agregar Imagen" Clicked="btnTomarFoto" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
+
+            <Entry x:Name="txtLatitud" Placeholder="Latitud" IsEnabled="False" Margin="0,10"/>
+            <Entry x:Name="txtLongitud" Placeholder="Longitud" IsEnabled="False" Margin="0,10"/>
+
+            <Label Text="Descripción" FontSize="Large" Margin="0,10" TextColor="Black"/>
+            <Entry x:Name="txtDescripcion" Placeholder="Escribe una descripción" HeightRequest="50" Margin="0,10"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnAgregar" Text="Guardar" Clicked="btnAgregarSitio" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
+                <Button Grid.Column="1" x:Name="btnLista" Text="Ver Lista" Clicked="btnListaSitios" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
+            </Grid>
+
+            <Button x:Name="btnSalir" Text="Salir de la App" Clicked="btnSalirApp" Margin="0,20" BackgroundColor="#8ecae6" TextColor="Black"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
