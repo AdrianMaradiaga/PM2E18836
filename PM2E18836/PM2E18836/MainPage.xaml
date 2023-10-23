@@ -4,29 +4,34 @@
              x:Class="PM2E18836.MainPage">
 
     <ScrollView>
-        <StackLayout Padding="20">
-            <Label Text="Imagen del Sitio Visitado" FontSize="Large" HorizontalOptions="Center" TextColor="Black" />
+        <StackLayout>
+            <Frame Padding="15" CornerRadius="0">
+                <Label Text="SITE VISITOR APP" HorizontalTextAlignment="Center" TextColor="Green" FontAttributes="Bold" FontSize="20"/>
+            </Frame>
 
-            <Image x:Name="foto" Source="camera2.png" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" />
+            <Label Text="Imagen del Sitio Visitado" FontSize="Small" HorizontalOptions="Center" TextColor="Black" Margin="0,0,0,5" />
+            <Image x:Name="foto" Source="camera2.png" WidthRequest="160" HeightRequest="160" HorizontalOptions="Center" 
+                   BackgroundColor="LightGray"/>
 
-            <Button x:Name="btnFoto" Text="Agregar Imagen" Clicked="btnTomarFoto" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
+            <Button x:Name="btnFoto" Text="Agregar Imagen" Clicked="btnTomarFoto" Margin="50,7,50,7" 
+                    BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black"/>
 
-            <Entry x:Name="txtLatitud" Placeholder="Latitud" IsEnabled="False" Margin="0,10"/>
-            <Entry x:Name="txtLongitud" Placeholder="Longitud" IsEnabled="False" Margin="0,10"/>
+            <Label Text="Latitud:" FontSize="Subtitle" Margin="20,5,10,5" TextColor="Black" FontAttributes="Bold"/>
+            <Entry x:Name="txtLatitud" MaxLength="100" IsEnabled="False" Margin="15,-10,15,5"/>
 
-            <Label Text="Descripción" FontSize="Large" Margin="0,10" TextColor="Black"/>
-            <Entry x:Name="txtDescripcion" Placeholder="Escribe una descripción" HeightRequest="50" Margin="0,10"/>
+            <Label Text="Longitud:" FontSize="Subtitle" Margin="20,5,10,5" TextColor="Black" FontAttributes="Bold"/>
+            <Entry x:Name="txtLongitud" MaxLength="100" IsEnabled="False" Margin="15,-10,15,5"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="btnAgregar" Text="Guardar" Clicked="btnAgregarSitio" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
-                <Button Grid.Column="1" x:Name="btnLista" Text="Ver Lista" Clicked="btnListaSitios" Margin="0,10" BackgroundColor="#8ecae6" TextColor="Black"/>
-            </Grid>
+            <Label Text="Descripción" FontSize="Subtitle" Margin="20,5,10,5" TextColor="Black" FontAttributes="Bold"/>
+            <Entry x:Name="txtDescripcion" Placeholder="Escribe una descripción" HeightRequest="50" Margin="15,-10,15,15"/>
 
-            <Button x:Name="btnSalir" Text="Salir de la App" Clicked="btnSalirApp" Margin="0,20" BackgroundColor="#8ecae6" TextColor="Black"/>
+            <RelativeLayout HorizontalOptions="CenterAndExpand" Margin="0">
+                <Grid>
+                    <Button Text="Agregar" x:Name="btnAgregar" BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black" WidthRequest="170" Grid.Column="0" Clicked="btnAgregarSitio"/>
+                    <Button Text="Listar Sitios" x:Name="btnLista" BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black" WidthRequest="170"  Grid.Column="1" Clicked="btnListarSitios"/>
+                    <Button Text="Salir App" x:Name="btnSalir" BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black" WidthRequest="170" HorizontalOptions="Center" Grid.Row="1" Grid.ColumnSpan="2" Clicked="btnSalirApp"/>
+                </Grid>
+            </RelativeLayout>
         </StackLayout>
     </ScrollView>
 

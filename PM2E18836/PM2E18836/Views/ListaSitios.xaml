@@ -1,12 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Controllers="clr-namespace:PM2E18836.Controllers"
              x:Class="PM2E18836.Views.ListaSitios">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Controllers:ByteArrayImage x:Key="ByteToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content >
+        <StackLayout Padding="5">
+            <CollectionView x:Name="ListaSitio" SelectionMode="Single" SelectionChanged="ListaSitios_ItemTapped">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray" CornerRadius="10">
+                            <StackLayout VerticalOptions="Center">
+                                <Grid>
+                                    <Image Source="{Binding imagen, Converter={StaticResource ByteToImage}}" 
+                                 Grid.Column="0" WidthRequest="60" HeightRequest="60" Margin="-100,0,0,0"/>
+                                    <Label Grid.Column="1" FontSize="Small" Margin="-100,0,0,10" VerticalOptions="Center" Text="{Binding descripcion}" ></Label>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <RelativeLayout HorizontalOptions="CenterAndExpand" Margin="20">
+                <Grid>
+                    <Button Text="Eliminar sitio" x:Name="eliminarsitio"  BackgroundColor="#8bc34a" CornerRadius="10" TextColor="Black"  WidthRequest="170" Grid.Column="0" Clicked="btneliminarsitio"/>
+                    <Button Text="Ver Mapa" x:Name="vermapa"  BackgroundColor="#8bc34a"  CornerRadius="10" TextColor="Black" WidthRequest="170"  Grid.Column="1" Clicked="btnvermapa" />
+                </Grid>
+            </RelativeLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
